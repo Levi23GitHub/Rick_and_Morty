@@ -1,16 +1,24 @@
-export default function Card(props) {
-   const { onClose} = props;
+import style from "./Card.module.css"
+
+export default function Card({onClose, image, name, status, species, gender, origin, id}) {
    
    return (
-      <div>
-         <br/>
-         <button onClick={onClose}>X</button>
-         <h2>{props.name}</h2>
-         <h2>{props.status}</h2>
-         <h2>{props.species}</h2>
-         <h2>{props.gender}</h2>
-         <h2>{props.origin.name}</h2>
-         <img src={props.image} alt='Ricky´s image' />
+      <div className = {style.card_div}>
+         <button className={style.btn1} onClick={() => onClose(id)}>X</button>
+         
+         <div className={style.individual_card}>
+            <div className = {style.front}>
+               <img src={image} alt='' />
+               <h2 className= {style.name}>{name}</h2>
+            </div>
+         
+            <div className={style.back}>
+               <h2 >{status}</h2>
+               <h2 >{species}</h2>
+               <h2 >{gender}</h2>
+               <h2 >{origin}</h2>
+            </div>
+         </div>
       </div>
    );
 }

@@ -1,0 +1,28 @@
+.div_box{
+   display: flex;
+    padding: 15px;
+    left: 50px;
+    background-color: blue;
+    justify-content: center;
+}
+
+.search_input{
+    padding: 5px 25px 5px 5px;
+    border-radius: 5px;
+}
+
+.search_btn{
+    margin-left: 10px;
+    background-color: red;
+    color: aliceblue;
+    font-weight: 900;
+    border-radius: 5px;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+.div_box:hover .search_btn{
+    border-color: red;
+    box-sizing: 5px;
+    background-color: green;
+}
