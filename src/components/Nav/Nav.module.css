@@ -1,0 +1,31 @@
+.nav{
+    display: flex;
+    padding: 15px;
+    left: 50px;
+    background-color: rgba(8, 237, 245, 0.644);
+    justify-content: center;
+}
+
+.btns{
+    padding: 8px 40px;
+    
+}
+
+.about{
+    margin: 0 20px;
+}
+
+
+
+.home:hover{
+    background-color: rgb(26, 248, 230);
+    border-color: red;
+}
+.about:hover{
+    background-color: rgb(26, 248, 230);
+    border-color: red;
+}
+.form:hover{
+    background-color: rgb(26, 248, 230);
+    border-color: red;
+}

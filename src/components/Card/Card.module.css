@@ -1,68 +1,61 @@
 .card_div{
+    color: white;
+    width: 275px;
+    height: 345px;
+    /* background-color: #097954d0; */
+    border-radius: 10px;
+    margin: 10px;
+    /* padding-bottom: 15px; */
+}
+
+
+.img_div{
     position: relative;
-    padding-left: 15px;
-    /* background-color: blue;  */
-    width: 300px;
-    height: 350px;
+    height: 260px;
+    /* border-radius: 10px;  */
 }
 
-.individual_card{
-    position: absolute;
-    backface-visibility: hidden;
-    /* transition: 1s; */
-    overflow: hidden;
+.card_div img{
     width: 100%;
-    height: 100%;
-    
+    height: 285px;
+    /* top: -1px; */
+    border-radius: 10px 10px 0 0;
+
 }
 
-
-.front{
-    position: absolute;
-    box-shadow: 0 8px 10px #000;
-    transform: perspective(600px) rotateY(0deg);
-    backface-visibility: hidden;
-    transition: 0.3s;
-}
-
-.back{
-    /* display: flex;
-    flex-direction: row; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    background-color: rgba(162, 201, 172, 0.81);
-    width: 95%;
-    height: 80%;    
-    text-align: center;
-    text-justify:auto;
+.info{
+    display: flex; 
+    justify-content: space-evenly;
+    /* height: 0px; */
+    margin-top: 20px;
+    background-color: blue;
+    border-radius: 0 0 10px 10px;
+    font-size: 10px;
+    padding: 10px 0;
 }
 
 
 .btn1{
     position: absolute;
-    right: 0;
-    top: 20px;
-    /* z-index: 1; */
+    right: 0px;
+    top: -1px;
+    z-index: 1;
     cursor: pointer;
-    display: none;
     background-color: red;
+    border-radius: 10px;
+}
+
+.fav_btn{
+    position: absolute;
+    left: 0px;
+    top: -1px;
+    z-index: 1;
+    border-radius: 10px ;
 }
 
 .name{
     position: absolute;
-    top: 240px;
+    top: 210px;
     margin-left: 10px;
     background-color: yellow;
-}
-
-
-.card_div:hover .front{
-    transform: perspective(600px) rotateY(180deg);
-    
-}
-
-.card_div:hover .btn1{
-    display: inline-block;
-    top: 20px;
-    z-index: 1;
 }

@@ -1,3 +1,4 @@
+import style from "./Detail.module.css"
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -20,16 +21,16 @@ export default function Detail (){
      }, [id]);
 
     return (
-        <div>
+        <div >
             {character.name && (
-                <>
+                <div className={style.container}>
                     <h1>{character.name}</h1>
                     <p>{character.status}</p>
                     <p>{character.species}</p>
                     <p>{character.gender}</p>
                     <p>{character.origin?.name}</p>
                     <img src={character.image} alt="img"/>
-                </>
+                </div>
             )}
         </div>
     )

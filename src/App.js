@@ -2,38 +2,48 @@ import axios from 'axios';
 import './App.css';
 import Cards from './components/Cards/Cards';
 import Nav from './components/Nav/Nav';
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Detail from './components/Vista/Detail'; 
-import About from "./components/Vista/About";
+import { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Detail from './components/Detail/Detail'; 
+import About from "./components/About/About";
+// import Error from './components/Error/Error';
+import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
 
-
-const example = {
-   id: 1,
-   name: 'Rick Sanchez',
-   status: 'Alive',
-   species: 'Human',
-   gender: 'Male',
-   origin: {
-      name: 'Earth (C-137)',
-      url: 'https://rickandmortyapi.com/api/location/1',
-   },
-   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
- };
 
 
 function App() {
-   const [characters,setCharacters] = useState([]);
+   const [characters, setCharacters] = useState([]);
+   const [access, setAccess] = useState(false)
+   const navigate = useNavigate();
+
+   const Email = "lima@gmail.com";
+   const Password = "miPass123";
+
+   const login = (userData) =>{
+      if(userData.email === Email && userData.password === Password){
+         setAccess(true);
+         navigate("/home");
+      }
+      else alert("Invalid credencial");
+   };
+
+   useEffect(() =>{
+      !access && navigate("/");
+   },[access]);
 
    
-   function onSearch(id) {
+   function onSearch(id, Error) {
       axios(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          }
+         else{
+            return Error;
+         }
       })
-      .catch(error => window.alert('¡No hay personajes con este ID!'));
+      // .catch(error => window.alert(error.response.data.error)) ;
    }
 
    function onClose (id) {
@@ -55,8 +65,16 @@ function App() {
                element={<About />}
             />
             <Route 
+               path='/favorites' 
+               element={<Favorites />}
+            />
+            <Route 
                path='/detail/:id' 
                element={<Detail />}
+            />
+            <Route
+               path='/'
+               element={<Form login={login}/>}
             />
          </Routes>
       </>

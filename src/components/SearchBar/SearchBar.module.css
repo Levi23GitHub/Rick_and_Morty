@@ -1,9 +1,9 @@
 .div_box{
-   display: flex;
+    /* display: flex;
     padding: 15px;
     left: 50px;
     background-color: blue;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .search_input{
@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-.div_box:hover .search_btn{
+.search_btn:hover{
     border-color: red;
     box-sizing: 5px;
     background-color: green;
